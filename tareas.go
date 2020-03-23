@@ -12,6 +12,14 @@ func (t task) marcarCompleta() {
 	t.ceompletado = true
 }
 
+func (t task) actualizarDescripcion(descripcion string) {
+	t.descripcion = descripcion
+}
+
+func (t task) actualizarNombre(nombre string) {
+	t.nombre = nombre
+}
+
 func main() {
 	t := task{
 		nombre:      "Completar mi curso de DeepLearning",
