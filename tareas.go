@@ -8,6 +8,10 @@ type task struct {
 	ceompletado bool
 }
 
+func (t task) marcarCompleta() {
+	t.ceompletado = true
+}
+
 func main() {
 	t := task{
 		nombre:      "Completar mi curso de DeepLearning",
