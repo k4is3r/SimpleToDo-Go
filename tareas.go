@@ -33,6 +33,22 @@ func (t *taskList) elminiarDeLista(index int) {
 
 }
 
+func (t *taskList) imprimirLista() {
+	for _, tarea := range t.tasks {
+		fmt.Println("Nombre:", tarea.nombre)
+		fmt.Println("Descripcion:", tarea.descripcion)
+	}
+}
+
+func (t *taskList) imprimirListaCompletada() {
+	for _, tarea := range t.tasks {
+		if tarea.ceompletado {
+			fmt.Println("Nombre:", tarea.nombre)
+			fmt.Println("Descripcion:", tarea.descripcion)
+		}
+	}
+}
+
 func main() {
 	t1 := &task{
 		nombre:      "Completar mi curso de DeepLearning",
@@ -56,12 +72,9 @@ func main() {
 		},
 	}
 	lista.agregarALista(t4)
+	lista.imprimirLista()
+	lista.tasks[0].marcarCompleta()
+	fmt.Println("Tareas completadas")
+	lista.imprimirListaCompletada()
 
-	for i := 0; i < len(lista.tasks); i++ {
-		fmt.Println("Index:", i, "nombre:", lista.tasks[i].nombre)
-	}
-	fmt.Println("**********************************************")
-	for index, tarea := range lista.tasks {
-		fmt.Println("Index:", index, "nombre:", tarea.nombre)
-	}
 }
