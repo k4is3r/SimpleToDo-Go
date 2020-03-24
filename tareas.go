@@ -29,13 +29,31 @@ func (t *task) actualizarNombre(nombre string) {
 }
 
 func main() {
-	t := &task{
+	t1 := &task{
 		nombre:      "Completar mi curso de DeepLearning",
 		descripcion: "Completar mi cursos de DeepLearning en semana de cuarentena",
 	}
-	fmt.Printf("%+v\n", t)
-	t.marcarCompleta()
-	t.actualizarNombre("finalizar curso DeepLearning")
-	t.actualizarDescripcion("Completar curso lo antes posible")
-	fmt.Printf("%+v\n", t)
+	t2 := &task{
+		nombre:      "Completar mi curso de EthicalHacking",
+		descripcion: "Completar mi cursos de EthicalHacking en semana de cuarentena",
+	}
+	t3 := &task{
+		nombre:      "Completar mi curso de Raspberry",
+		descripcion: "Completar mi cursos de Raspberry en semana de cuarentena",
+	}
+	t4 := &task{
+		nombre:      "Completar mi curso de GCP",
+		descripcion: "Completar mi curso de GCP semana de cuarentena",
+	}
+	lista := &taskList{
+		tasks: []*task{
+			t1, t2, t3, t4,
+		},
+	}
+	fmt.Println(len(lista.tasks))
+	fmt.Println(lista.tasks[1])
+
+	lista.agregarALista(t4)
+
+	fmt.Println(len(lista.tasks))
 }
