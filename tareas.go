@@ -28,6 +28,11 @@ func (t *task) actualizarNombre(nombre string) {
 	t.nombre = nombre
 }
 
+func (t *taskList) elminiarDeLista(index int) {
+	t.tasks = append(t.tasks[:index], t.tasks[index+1:]...)
+
+}
+
 func main() {
 	t1 := &task{
 		nombre:      "Completar mi curso de DeepLearning",
@@ -47,13 +52,16 @@ func main() {
 	}
 	lista := &taskList{
 		tasks: []*task{
-			t1, t2, t3, t4,
+			t1, t2, t3,
 		},
 	}
-	fmt.Println(len(lista.tasks))
-	fmt.Println(lista.tasks[1])
-
 	lista.agregarALista(t4)
 
-	fmt.Println(len(lista.tasks))
+	for i := 0; i < len(lista.tasks); i++ {
+		fmt.Println("Index:", i, "nombre:", lista.tasks[i].nombre)
+	}
+	fmt.Println("**********************************************")
+	for index, tarea := range lista.tasks {
+		fmt.Println("Index:", index, "nombre:", tarea.nombre)
+	}
 }
