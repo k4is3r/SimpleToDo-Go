@@ -66,15 +66,31 @@ func main() {
 		nombre:      "Completar mi curso de GCP",
 		descripcion: "Completar mi curso de GCP semana de cuarentena",
 	}
+	t5 := &task{
+		nombre:      "Completar mi curso de Java",
+		descripcion: "Completar mi cursos de Java en semana de cuarentena",
+	}
+	t6 := &task{
+		nombre:      "Completar mi curso de C#",
+		descripcion: "Completar mi curso de C# semana de cuarentena",
+	}
 	lista := &taskList{
 		tasks: []*task{
 			t1, t2, t3,
 		},
 	}
-	lista.agregarALista(t4)
-	lista.imprimirLista()
-	lista.tasks[0].marcarCompleta()
-	fmt.Println("Tareas completadas")
-	lista.imprimirListaCompletada()
+	lista2 := &taskList{
+		tasks: []*task{
+			t4, t5, t6,
+		},
+	}
 
+	mapaTareas := make(map[string]*taskList)
+	mapaTareas["edward"] = lista
+	mapaTareas["jose"] = lista2
+
+	fmt.Println("Tareas Edward")
+	mapaTareas["edward"].imprimirLista()
+	fmt.Println("Tareas jose")
+	mapaTareas["jose"].imprimirLista()
 }
